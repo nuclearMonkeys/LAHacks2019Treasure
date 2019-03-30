@@ -7,12 +7,12 @@ public class EnemyController : MonoBehaviour
     private Rigidbody myRB;
     public float moveSpeed;
 
-    //public PlayerController thePlayer;
+    public PlayerController thePlayer;
     // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
-        //thePlayer = FindObjectOfType<PlayerController>();
+        thePlayer = FindObjectOfType<PlayerController>();
     }
 
     void FixedUpdate() {
@@ -21,6 +21,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.LookAt(thePlayer.transform.position);
+        transform.LookAt(thePlayer.transform.position);
     }
 }
