@@ -21,6 +21,17 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(thePlayer.transform.position);
+        if(thePlayer != null)
+            transform.LookAt(thePlayer.transform.position);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) {
+            Destroy(other.gameObject);
+        }
+        else if(other.CompareTag("PlayerBullet")) {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefaultBullet : AbstractBullet
 {
     protected override void Awake() {
-        rb = this.GetComponent<Rigidbody>();
+        rb = this.GetComponent<Rigidbody>();    
         speed = 10.0f;
         damage = 1;
     }
