@@ -204,7 +204,7 @@ PrefabInstance:
     - target: {fileID: 5192600765208962255, guid: 56804a068bf70dc488bc8255bca58da6,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5192600764229395853, guid: 56804a068bf70dc488bc8255bca58da6,
         type: 3}
@@ -215,6 +215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.13099992
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429878590306320026, guid: 56804a068bf70dc488bc8255bca58da6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56804a068bf70dc488bc8255bca58da6, type: 3}
@@ -294,6 +299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.15100002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429878590306320026, guid: 56804a068bf70dc488bc8255bca58da6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56804a068bf70dc488bc8255bca58da6, type: 3}
@@ -955,6 +965,7 @@ GameObject:
   - component: {fileID: 870796665}
   - component: {fileID: 870796664}
   - component: {fileID: 870796663}
+  - component: {fileID: 870796667}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1043,6 +1054,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &870796667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870796662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae878982a91af645b745cad4cb08eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1013551881 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5192600765208962252, guid: 56804a068bf70dc488bc8255bca58da6,
@@ -3187,7 +3210,7 @@ PrefabInstance:
     - target: {fileID: 2693459327491826223, guid: 8a3aaf9dd38dad548a5713402f59948a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.3
+      value: 0.97
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2693459326020048804, guid: 8a3aaf9dd38dad548a5713402f59948a, type: 3}
