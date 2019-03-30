@@ -6,12 +6,14 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject bulletSpawnPoint;
-
-    public float speed = 5.0f;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private float speed = 5.0f;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        rb = this.GetComponent<Rigidbody>();
+        gameManager = Object.FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,14 @@ public class PlayerShoot : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnemyBullet")) {
+            gameManager.playerIsDead = true;
+            Destroy(this.gameObject);
         }
     }
 }

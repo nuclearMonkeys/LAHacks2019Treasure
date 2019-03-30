@@ -3,7 +3,7 @@
 public class AbstractBullet : MonoBehaviour
 {
     protected float speed;
-    protected int damage;
+    public int damage;
     protected Rigidbody rb;
 
     protected virtual void Awake() { }

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LyndonScene.unity
     guid: 9eddc597c3af58d41a09bd01f982ea43
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 1dad6603c44e1454bb4863788568548c
   m_configObjects: {}
