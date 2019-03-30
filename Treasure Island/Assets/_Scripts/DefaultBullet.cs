@@ -11,7 +11,7 @@ public class DefaultBullet : AbstractBullet
     }
 
     protected override void Update() {
-        rb.velocity = Vector3.forward * speed;
+        rb.velocity = transform.forward * speed;
         Destroy(this.gameObject, 0.2f);
     }
 }
