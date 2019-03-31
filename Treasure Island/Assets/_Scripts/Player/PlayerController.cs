@@ -41,10 +41,7 @@ public class PlayerController : MonoBehaviour
                 moveVelocity = moveInput * moveSpeed * Time.fixedDeltaTime;
                 transform.Translate(moveVelocity);
                  }
-            else
-            {
-                //do nothing
-            }
+                 
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
             moveVelocity = moveInput * moveSpeed * Time.fixedDeltaTime;
             transform.Translate(moveVelocity);
