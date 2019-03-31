@@ -199,6 +199,11 @@ PrefabInstance:
       propertyPath: thePlayer
       value: 
       objectReference: {fileID: 702078261}
+    - target: {fileID: 5192600765208962255, guid: 56804a068bf70dc488bc8255bca58da6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6429878590306320026, guid: 56804a068bf70dc488bc8255bca58da6,
         type: 3}
       propertyPath: MyPath
@@ -214,6 +219,11 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1337926782}
+    - target: {fileID: 6429878590306320026, guid: 56804a068bf70dc488bc8255bca58da6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5192600764229395853, guid: 56804a068bf70dc488bc8255bca58da6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -242,7 +252,12 @@ PrefabInstance:
     - target: {fileID: 4569674033549341289, guid: 56804a068bf70dc488bc8255bca58da6,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569674033549341289, guid: 56804a068bf70dc488bc8255bca58da6,
+        type: 3}
+      propertyPath: speed
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56804a068bf70dc488bc8255bca58da6, type: 3}
@@ -1432,7 +1447,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 18098663}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a5a6af87587d2a448f8b348c6d2e4a3, type: 3}
   m_Name: 

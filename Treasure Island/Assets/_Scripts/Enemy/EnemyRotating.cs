@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyRotating : MonoBehaviour
 {
+    public float speed;
+    public float seconds = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,21 @@ public class EnemyRotating : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y + Time.deltaTime, transform.rotation.z);
+        if (seconds <= 2.0f)
+        {
+            transform.Rotate(Vector3.up, speed * Time.deltaTime);
+            seconds += Time.deltaTime;
+        }
+        else if (seconds >= 2.0f)
+        {
+            transform.Rotate(Vector3.up, 0 * Time.deltaTime);
+            seconds += Time.deltaTime;
+            if (seconds >= 4.0f)
+            {
+                seconds = 0.0f;
+            }
+        }
+
+
     }
 }
