@@ -57,10 +57,11 @@ public class FollowPath : MonoBehaviour
         //Set the position of this object to the position of our starting point
         transform.position = pointInPath.Current.position;
     }
-     
+
     //Update is called by Unity every frame
     public void Update()
     {
+        transform.LookAt(pointInPath.Current.position);
         //Validate there is a path with a point in it
         if (pointInPath == null || pointInPath.Current == null)
         {
@@ -70,16 +71,11 @@ public class FollowPath : MonoBehaviour
         if (Type == MovementType.MoveTowards) //If you are using MoveTowards movement type
         {
             //Move to the next point in path using MoveTowards
+
             transform.position =
                 Vector3.MoveTowards(transform.position,
                                     pointInPath.Current.position,
                                     Time.deltaTime * Speed);
-            //transform.LookAt(pointInPath.Current.position);
-
-            //transform.rotation = Quaternion.Slerp(transform.rotation, pointInPath.Current.rotation, Time.deltaTime * smooth);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.fixedDeltaTime * rotationSpeed);
-
-            //transform.LookAt(pointInPath.Current.position);
         }
         else if (Type == MovementType.LerpTowards) //If you are using LerpTowards movement type
         {
@@ -92,13 +88,13 @@ public class FollowPath : MonoBehaviour
         //Check to see if you are close enough to the next point to start moving to the following one
         //Using Pythagorean Theorem
         //per unity suaring a number is faster than the square root of a number
-        //Using .sqrMagnitude 
+        //Using .sqrMagnitude
         var distanceSquared = (transform.position - pointInPath.Current.position).sqrMagnitude;
         if (distanceSquared < MaxDistanceToGoal * MaxDistanceToGoal) //If you are close enough
         {
 
             pointInPath.MoveNext(); //Get next point in MovementPath
-            
+
             //StartCoroutine(Turn());
         }
         //The version below uses Vector3.Distance same as Vector3.Magnitude which includes (square root)
@@ -116,11 +112,11 @@ public class FollowPath : MonoBehaviour
         yield return new WaitForSecondsRealtime(120.0f);
         float angle = (Mathf.Sin(Time.time * rotationSpeed) * maxAngle) + angleOffset;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
-        
+
     }
 
     //(Custom Named Methods)
-    #region Utility Methods 
+    #region Utility Methods
 
     #endregion //Utility Methods
 
