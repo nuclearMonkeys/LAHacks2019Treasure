@@ -18,6 +18,7 @@ public class FollowPath : MonoBehaviour
     public MovementPath MyPath; // Reference to Movement Path Used
     public float Speed = 3; // Speed object is moving
     public float MaxDistanceToGoal = .1f; // How close does it have to be to the point to be considered at point
+    public float rotationDamping = 5;
     #endregion //Public Variables
 
     #region Private Variables
@@ -61,7 +62,15 @@ public class FollowPath : MonoBehaviour
     //Update is called by Unity every frame
     public void Update()
     {
-        transform.LookAt(pointInPath.Current.position);
+
+        var targetPoint = pointInPath.Current.position;
+        var targetRotation = Quaternion.LookRotation(targetPoint - transform.position, Vector3.up);
+        transform.localEulerAngles = new Vector3(
+            0f,
+            transform.localEulerAngles.y,
+            transform.localEulerAngles.z
+        );
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
 
         //Validate there is a path with a point in it
         if (pointInPath == null || pointInPath.Current == null)
@@ -93,9 +102,9 @@ public class FollowPath : MonoBehaviour
         var distanceSquared = (transform.position - pointInPath.Current.position).sqrMagnitude;
         if (distanceSquared < MaxDistanceToGoal * MaxDistanceToGoal) //If you are close enough
         {
-
             pointInPath.MoveNext(); //Get next point in MovementPath
-
+            //transform.LookAt(pointInPath.Current.position);
+            
             //StartCoroutine(Turn());
         }
         //The version below uses Vector3.Distance same as Vector3.Magnitude which includes (square root)
