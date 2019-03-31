@@ -1287,6 +1287,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.718
       objectReference: {fileID: 0}
+    - target: {fileID: 1646647090603930836, guid: 8a3aaf9dd38dad548a5713402f59948a,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a3aaf9dd38dad548a5713402f59948a, type: 3}
 --- !u!1001 &4032460989110813220
