@@ -28,7 +28,7 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void Shoot() {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift)) {
             StartCoroutine(_DefaultShoot());
         }
     }
