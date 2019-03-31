@@ -99,7 +99,7 @@ public class PlayerShoot : MonoBehaviour
     void PistolAttack()
     {
         
-        if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+       // if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
@@ -108,7 +108,7 @@ public class PlayerShoot : MonoBehaviour
 
     void RifleAttack()
     {
-        if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+        //if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
@@ -117,7 +117,7 @@ public class PlayerShoot : MonoBehaviour
 
     void ShotgunAttack()
     {
-        if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+      //  if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
@@ -130,7 +130,7 @@ public class PlayerShoot : MonoBehaviour
 
     void BowAttack()
     {
-        if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+       // if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             //instantiate bow attack
@@ -139,7 +139,7 @@ public class PlayerShoot : MonoBehaviour
 
     void SpearAttack()
     {
-        if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+      //  if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             //instantiate spear attack
