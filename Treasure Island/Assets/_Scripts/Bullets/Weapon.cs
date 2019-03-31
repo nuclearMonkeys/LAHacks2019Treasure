@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class AbstractBullet : MonoBehaviour
+public class Weapon : MonoBehaviour //parent class for the rest of the weapons
 {
-    protected float speed;
+    protected float projectileSpeed;
     public int damage;
+    public float fireRate;
     protected Rigidbody rb;
 
     protected virtual void Awake() { }
