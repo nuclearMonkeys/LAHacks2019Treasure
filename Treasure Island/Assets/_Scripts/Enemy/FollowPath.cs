@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -23,6 +24,11 @@ public class FollowPath : MonoBehaviour
     private IEnumerator<Transform> pointInPath; //Used to reference points returned from MyPath.GetNextPathPoint
     #endregion //Private Variables
 
+    public float maxAngle = 70.0f;
+    public float rotationSpeed = 0.3f;
+    public float angleOffset = 0.1f;
+    public float smooth = 2.0f;
+
     // (Unity Named Methods)
     #region Main Methods
     public void Start()
@@ -38,7 +44,7 @@ public class FollowPath : MonoBehaviour
         pointInPath = MyPath.GetNextPathPoint();
         Debug.Log(pointInPath.Current);
         //Get the next point in the path to move to (Gets the Default 1st value)
-        pointInPath.MoveNext();
+        pointInPath.MoveNext();;
         Debug.Log(pointInPath.Current);
 
         //Make sure there is a point to move to
@@ -51,10 +57,11 @@ public class FollowPath : MonoBehaviour
         //Set the position of this object to the position of our starting point
         transform.position = pointInPath.Current.position;
     }
-     
+
     //Update is called by Unity every frame
     public void Update()
     {
+        transform.LookAt(pointInPath.Current.position);
         //Validate there is a path with a point in it
         if (pointInPath == null || pointInPath.Current == null)
         {
@@ -64,12 +71,11 @@ public class FollowPath : MonoBehaviour
         if (Type == MovementType.MoveTowards) //If you are using MoveTowards movement type
         {
             //Move to the next point in path using MoveTowards
+
             transform.position =
                 Vector3.MoveTowards(transform.position,
                                     pointInPath.Current.position,
                                     Time.deltaTime * Speed);
-
-            transform.LookAt(pointInPath.Current.position);
         }
         else if (Type == MovementType.LerpTowards) //If you are using LerpTowards movement type
         {
@@ -82,11 +88,14 @@ public class FollowPath : MonoBehaviour
         //Check to see if you are close enough to the next point to start moving to the following one
         //Using Pythagorean Theorem
         //per unity suaring a number is faster than the square root of a number
-        //Using .sqrMagnitude 
+        //Using .sqrMagnitude
         var distanceSquared = (transform.position - pointInPath.Current.position).sqrMagnitude;
         if (distanceSquared < MaxDistanceToGoal * MaxDistanceToGoal) //If you are close enough
         {
+
             pointInPath.MoveNext(); //Get next point in MovementPath
+
+            //StartCoroutine(Turn());
         }
         //The version below uses Vector3.Distance same as Vector3.Magnitude which includes (square root)
         /*
@@ -99,8 +108,15 @@ public class FollowPath : MonoBehaviour
     }
     #endregion //Main Methods
 
+    IEnumerator Turn() {
+        yield return new WaitForSecondsRealtime(120.0f);
+        float angle = (Mathf.Sin(Time.time * rotationSpeed) * maxAngle) + angleOffset;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+
+    }
+
     //(Custom Named Methods)
-    #region Utility Methods 
+    #region Utility Methods
 
     #endregion //Utility Methods
 
