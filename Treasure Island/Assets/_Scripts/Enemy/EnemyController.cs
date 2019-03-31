@@ -45,14 +45,13 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*
+        
         if (other.CompareTag("Player")) {
             Destroy(other.gameObject);
         }
         else if(other.CompareTag("PlayerBullet")) {
             Destroy(this.gameObject);
         }
-        */
     }
 
     void OnCollisionEnter (Collision col)

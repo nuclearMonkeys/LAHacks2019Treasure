@@ -777,6 +777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1034220236}
   offset: {x: 0, y: 5, z: -4}
+  freeCameraSpeed: 0
+  freeCameraLimit: 0
 --- !u!1 &1202206228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2693459326142164660, guid: 8a3aaf9dd38dad548a5713402f59948a,
@@ -1201,6 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8365d7df264d84289f078b7e98fd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: WinScene
 --- !u!1001 &2064832363
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,8 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: f1c3d271d4bab404dae605ebefc9ca14
   - enabled: 1
-    path: Assets/Scenes/LyndonScene.unity
-    guid: 9eddc597c3af58d41a09bd01f982ea43
+    path: Assets/Scenes/Entrance.unity
+    guid: f02e2f5c0f0786a45bc46e63f452fdc0
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 5d85abd09f5855b4aa4bddc6cfb61831
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: ef6c36b915b6aa3408d1135d99cf2f5d
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 6c5005f8b4a0c3c4791d568deaec504a
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 7193a01c7d57e6947b10fee6e1d9946a
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 1dad6603c44e1454bb4863788568548c

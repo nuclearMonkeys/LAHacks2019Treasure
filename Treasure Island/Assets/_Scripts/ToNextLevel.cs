@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ToNextLevel : MonoBehaviour
 {
+    public string level;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class ToNextLevel : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
-            SceneManager.LoadScene("WinScene");
+            SceneManager.LoadScene(level);
         }
     }
 }
