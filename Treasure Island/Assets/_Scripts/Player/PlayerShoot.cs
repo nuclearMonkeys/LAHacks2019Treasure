@@ -19,6 +19,8 @@ public class PlayerShoot : MonoBehaviour
     public Bow playerBow;
     public Spear playerSpear;
 
+    public float timeShotAvailable = 0.0f;
+
     //possible weapons include "KNIFE", "PISTOL", "RIFLE", "SHOTGUN", "BOW", "SPEAR"
 
     // Start is called before the first frame update
@@ -27,7 +29,7 @@ public class PlayerShoot : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         gameManager = Object.FindObjectOfType<GameManager>();
         GameObject.FindGameObjectsWithTag("Player");
-        currentWeapon = "SHOTGUN";
+        currentWeapon = "PISTOL";
     }
 
     // Update is called once per frame
@@ -44,22 +46,46 @@ public class PlayerShoot : MonoBehaviour
             switch (currentWeapon)
             {
                 case "KNIFE":
-                    KnifeAttack();
+                    if (Time.time > timeShotAvailable)
+                    {
+                        KnifeAttack();
+                        timeShotAvailable = Time.time + 1.0f;
+                    }
                     break;
                 case "PISTOL":
-                    PistolAttack();
+                    if (Time.time > timeShotAvailable)
+                    {
+                        PistolAttack();
+                        timeShotAvailable = Time.time + 0.75f;
+                    }
                     break;
                 case "RIFLE":
-                    RifleAttack();
+                    if (Time.time > timeShotAvailable)
+                    {
+                        RifleAttack();
+                        timeShotAvailable = Time.time + 0.1f;
+                    }
                     break;
                 case "SHOTGUN":
-                    ShotgunAttack();
+                    if (Time.time > timeShotAvailable)
+                    {
+                        ShotgunAttack();
+                        timeShotAvailable = Time.time + 1.0f;
+                    }
                     break;
                 case "BOW":
-                    BowAttack();
+                    if (Time.time > timeShotAvailable)
+                    {
+                        BowAttack();
+                        timeShotAvailable = Time.time + 1.5f;
+                    }
                     break;
                 case "SPEAR":
-                    SpearAttack();
+                    if (Time.time > timeShotAvailable)
+                    {
+                        SpearAttack();
+                        timeShotAvailable = Time.time + 2.0f;
+                    }
                     break;
             }
         }
@@ -94,11 +120,11 @@ public class PlayerShoot : MonoBehaviour
         if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
-            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation);
-            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation);
-            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation);
-            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation);
-            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation);
+            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+            Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
         }
     }
 

@@ -7,7 +7,7 @@ public class Ammo : MonoBehaviour
     public const int knifeAmmoCount = 1; //knife attacks do not consume ammo
     public int pistolAmmoCount = 25;
     public int rifleAmmoCount = 50;
-    public int shotgunAmmoCount = 20;
+    public int shotgunAmmoCount = 60;
     public int bowAmmoCount = 20;
     public int spearAmmoCount = 10;
 

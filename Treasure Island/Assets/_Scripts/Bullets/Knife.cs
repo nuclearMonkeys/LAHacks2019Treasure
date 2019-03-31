@@ -8,11 +8,12 @@ public class Knife : Weapon
     bool endReached;
     Vector3 startPos;
 
+    const float fireRate = 1.5f;
+
     protected override void Start()
     {
         projectileSpeed = 5.0f;
         damage = 5;
-        fireRate = 2.0f;
         counter = 0;
         endReached = false;
         startPos = transform.position;

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Pistol : Weapon
 {
+     const float fireRate = 0.75f;
 
     protected override void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
         projectileSpeed = 150.0f;
         damage = 3;
-        fireRate = 1.0f;
     }
 
     protected override void Update()
