@@ -55,6 +55,7 @@ public class FollowPath : MonoBehaviour
     //Update is called by Unity every frame
     public void Update()
     {
+        transform.LookAt(pointInPath.Current.position);
         //Validate there is a path with a point in it
         if (pointInPath == null || pointInPath.Current == null)
         {
@@ -64,12 +65,11 @@ public class FollowPath : MonoBehaviour
         if (Type == MovementType.MoveTowards) //If you are using MoveTowards movement type
         {
             //Move to the next point in path using MoveTowards
+
             transform.position =
                 Vector3.MoveTowards(transform.position,
                                     pointInPath.Current.position,
                                     Time.deltaTime * Speed);
-
-            transform.LookAt(pointInPath.Current.position);
         }
         else if (Type == MovementType.LerpTowards) //If you are using LerpTowards movement type
         {
