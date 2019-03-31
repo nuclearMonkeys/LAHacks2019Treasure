@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerBullet")) {
-            health -= other.gameObject.GetComponent<AbstractBullet>().damage;
+            health -= other.gameObject.GetComponent<Weapon>().damage;
         }
     }
 }
