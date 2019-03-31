@@ -21,13 +21,14 @@ public class PlayerController : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
+
             //probably not gonna use this
         }
 
         //FixedUpdate is called at constant time intervals (as opposed to every frame, which can vary by machine)
         void FixedUpdate()
         {
-        position = transform.position;
+        	position = transform.position;
     	    myRigidbody.velocity = moveVelocity;
             Move();
         }
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
             {
                 //do nothing
             }
-        }
+            moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+            moveVelocity = moveInput * moveSpeed * Time.fixedDeltaTime;
+            transform.Translate(moveVelocity);
+		}
 
 }
