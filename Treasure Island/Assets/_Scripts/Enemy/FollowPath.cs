@@ -68,6 +68,8 @@ public class FollowPath : MonoBehaviour
                 Vector3.MoveTowards(transform.position,
                                     pointInPath.Current.position,
                                     Time.deltaTime * Speed);
+
+            transform.LookAt(pointInPath.Current.position);
         }
         else if (Type == MovementType.LerpTowards) //If you are using LerpTowards movement type
         {
