@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    private const int knifeAmmoCount = 1; //knife attacks do not consume ammo
-    private int pistolAmmoCount = 25;
-    private int rifleAmmoCount = 50;
-    private int shotgunAmmoCount = 20;
-    private int bowAmmoCount = 20;
-    private int spearAmmoCount = 10;
+    public const int knifeAmmoCount = 1; //knife attacks do not consume ammo
+    public int pistolAmmoCount = 25;
+    public int rifleAmmoCount = 50;
+    public int shotgunAmmoCount = 20;
+    public int bowAmmoCount = 20;
+    public int spearAmmoCount = 10;
 
    public int GetAmmoCount(string weaponKind)
     {

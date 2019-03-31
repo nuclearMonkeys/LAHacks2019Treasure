@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         gameManager = Object.FindObjectOfType<GameManager>();
         GameObject.FindGameObjectsWithTag("Player");
-        currentWeapon = "PISTOL";
+        currentWeapon = "SHOTGUN";
     }
 
     // Update is called once per frame
@@ -72,6 +72,7 @@ public class PlayerShoot : MonoBehaviour
 
     void PistolAttack()
     {
+        
         if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);

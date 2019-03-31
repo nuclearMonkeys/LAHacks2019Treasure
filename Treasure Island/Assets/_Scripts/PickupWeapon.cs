@@ -12,9 +12,8 @@ public class PickupWeapon : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
-                // Pick up item
-
                 other.GetComponent<PlayerShoot>().currentWeapon = weaponName;
+                //Ammo.PickupAmmo(weaponName);
             }
         }
     }
