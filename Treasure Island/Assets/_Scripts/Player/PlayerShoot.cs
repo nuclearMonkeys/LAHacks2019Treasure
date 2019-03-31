@@ -98,26 +98,32 @@ public class PlayerShoot : MonoBehaviour
 
     void PistolAttack()
     {
-        
-       // if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+        Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+       /* if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
-        }
+        } */
     }
 
     void RifleAttack()
     {
-        //if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+        Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+        /*if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
-        }
+        } */
     }
 
     void ShotgunAttack()
     {
-      //  if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+        Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+        Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+        Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+        Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+        Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
+       /* if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
@@ -125,12 +131,12 @@ public class PlayerShoot : MonoBehaviour
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
             Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, this.transform.rotation * Random.rotation);
-        }
+        } */
     }
 
     void BowAttack()
     {
-       // if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+        if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             //instantiate bow attack
@@ -139,7 +145,7 @@ public class PlayerShoot : MonoBehaviour
 
     void SpearAttack()
     {
-      //  if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
+        if (playerAmmo.GetAmmoCount(currentWeapon) > 0)
         {
             playerAmmo.ConsumeAmmo(currentWeapon);
             //instantiate spear attack
