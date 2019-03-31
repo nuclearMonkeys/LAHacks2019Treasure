@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
     public float rotationDamping;
     public FollowPath path;
     public PlayerController thePlayer;
+    public float seconds = 5.0f;
+    public bool distance;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,45 +20,63 @@ public class EnemyController : MonoBehaviour
         path = FindObjectOfType<FollowPath>();
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         myRB.velocity = (transform.forward * moveSpeed);
     }
     // Update is called once per frame
     void Update()
     {
+        
         playerDistance = Vector3.Distance(thePlayer.position, transform.position);
 
         if (playerDistance < 5f)
         {
+            distance = true;
+            moveSpeed = 7.0f;
+        }
+
+        if (distance)
+        {
             //transform.LookAt(thePlayer.transform.position);
             path.enabled = false;
-            moveSpeed = 3;
+            
+            if (moveSpeed > 5.0f)
+                moveSpeed -= 0.025f;
+
+            else if (moveSpeed <= 5.0f)
+            {
+                distance = false;
+             }
             rotationDamping = 5;
             lookAtPlayer();
-            
         }
         else
         {
             moveSpeed = 0;
             rotationDamping = 0;
+            distance = false;
             path.enabled = true;
+          
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.CompareTag("Player")) {
+
+        if (other.CompareTag("Player"))
+        {
             Destroy(other.gameObject);
         }
-        else if(other.CompareTag("PlayerBullet")) {
+        else if (other.CompareTag("PlayerBullet"))
+        {
             Destroy(this.gameObject);
         }
     }
 
-    void OnCollisionEnter (Collision col)
+    void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.name == "Wall")
+        if (col.gameObject.name == "Wall")
         {
             transform.RotateAround(transform.position, transform.up, 180f);
         }

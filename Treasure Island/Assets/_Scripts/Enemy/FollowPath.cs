@@ -62,6 +62,7 @@ public class FollowPath : MonoBehaviour
     public void Update()
     {
         transform.LookAt(pointInPath.Current.position);
+
         //Validate there is a path with a point in it
         if (pointInPath == null || pointInPath.Current == null)
         {
@@ -111,6 +112,7 @@ public class FollowPath : MonoBehaviour
     IEnumerator Turn() {
         yield return new WaitForSecondsRealtime(120.0f);
         float angle = (Mathf.Sin(Time.time * rotationSpeed) * maxAngle) + angleOffset;
+
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
     }
